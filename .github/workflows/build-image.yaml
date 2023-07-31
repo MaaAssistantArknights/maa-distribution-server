@@ -47,7 +47,7 @@ jobs:
         id: docker-meta
         uses: docker/metadata-action@v4
         with:
-          images: ghcr.io/MaaArknightsAssistant/maa-distribution-server
+          images: ghcr.io/MaaAssistantArknights/maa-distribution-server
           tags: |
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
