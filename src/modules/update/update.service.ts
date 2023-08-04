@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { Injectable } from '@nestjs/common';
-import { Cron, Timeout } from '@nestjs/schedule';
+import { Interval } from '@nestjs/schedule';
 import { LoggerProvider } from '@/utils/logger.util';
 import {
   ReleaseChannelInfo,
@@ -13,8 +13,7 @@ export class UpdateService extends LoggerProvider {
   constructor(private readonly stateService: StateService) {
     super();
   }
-  @Timeout(0)
-  @Cron('0 */10 * * * *')
+  @Interval(600000)
   async update() {
     this.logger.log('Start updating release info.');
     const baseurl = 'https://ota.maa.plus/MaaAssistantArknights/api/version/';
