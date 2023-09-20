@@ -50,7 +50,7 @@ export class ReleaseService extends LoggerProvider {
           asset.name,
       );
       if (ota) {
-        return ota;
+        return { ...ota, version: releaseInfo.version };
       }
     }
 
@@ -65,6 +65,6 @@ export class ReleaseService extends LoggerProvider {
       throw new ResourceNotAvailableException('无法获取版本信息，请稍后再试');
     }
 
-    return full;
+    return { ...full, version: releaseInfo.version };
   }
 }
